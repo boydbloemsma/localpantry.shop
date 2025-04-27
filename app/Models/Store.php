@@ -24,4 +24,9 @@ class Store extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where('slug', $value)->firstOrFail();
+    }
 }

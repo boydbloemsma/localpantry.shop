@@ -19,4 +19,18 @@ class Product extends Model
     {
         return $this->belongsTo(Store::class);
     }
+
+    public function getimageUrlAttribute()
+    {
+        return asset('storage/' . $this->image_path);
+    }
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        $store = request()->route('store');
+
+        return $this->where('slug', $value)
+            ->where('store_id', $store->id)
+            ->firstOrFail();
+    }
 }
