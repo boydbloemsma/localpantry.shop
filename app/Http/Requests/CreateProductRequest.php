@@ -25,7 +25,7 @@ class CreateProductRequest extends FormRequest
                 'max:255',
             ],
             'price' => ['required', 'numeric', 'min:1'],
-            'image_path' => ['nullable', 'string', 'max:100'],
+            'image' => ['image', 'mimes:jpeg,png,jpg' , 'max:2048'],
         ];
     }
 

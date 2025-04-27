@@ -2,7 +2,7 @@
     <div class="max-w-xl mx-auto py-8">
         <h1 class="text-2xl font-bold mb-6">Create Your Product</h1>
 
-        <form method="POST" action="{{ route('product.store') }}" class="space-y-6">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('product.store') }}" class="space-y-6">
             @csrf
 
             <div>
@@ -19,8 +19,14 @@
 
             <div>
                 <label class="block font-medium">Price</label>
-                <input type="number" min="1" step="1" name="price" required class="w-full border rounded p-2" value="{{ old('price') }}">
+                <input type="number" name="price" required min="1" step="1" class="w-full border rounded p-2" value="{{ old('price') }}">
                 @error('price') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
+            </div>
+
+            <div>
+                <label class="block font-medium">Image</label>
+                <input type="file" name="image" required class="w-full border rounded p-2" value="{{ old('image') }}">
+                @error('image') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
             </div>
 
             <div>

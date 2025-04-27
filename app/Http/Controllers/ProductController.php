@@ -15,7 +15,7 @@ class ProductController extends Controller
 
     public function store(CreateProductRequest $request, CreateProductAction $action)
     {
-        $action->handle($request->user(), $request->validated());
+        $action->handle($request->user(), $request->validated(), $request->file('image'));
 
         return to_route('dashboard');
     }
