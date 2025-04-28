@@ -34,16 +34,17 @@ class ProductsRelationManager extends RelationManager
                             }),
                         Forms\Components\TextInput::make('slug')
                             ->required(),
+                        Forms\Components\TextInput::make('price')
+                            ->numeric()
+                            ->prefix('€')
+                            ->required(),
                     ]),
                 Forms\Components\Textarea::make('description')
-                    ->rows(5)
+                    ->rows(10)
                     ->cols(20)
                     ->nullable(),
-                Forms\Components\TextInput::make('price')
-                    ->numeric()
-                    ->prefix('€')
-                    ->required(),
                 Forms\Components\FileUpload::make('image_path')
+                    ->label('Image')
                     ->nullable(),
             ]);
     }
@@ -55,9 +56,13 @@ class ProductsRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
                     ->label('Image'),
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->money(currency: 'EUR', divideBy: 100),
+                    ->money(currency: 'EUR'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
                 //
@@ -73,6 +78,6 @@ class ProductsRelationManager extends RelationManager
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])->defaultSort('created_at', 'desc');
     }
 }

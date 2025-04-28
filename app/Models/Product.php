@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\MoneyCast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -13,6 +14,10 @@ class Product extends Model
         'description',
         'price',
         'image_path',
+    ];
+
+    protected $casts = [
+        'price' => MoneyCast::class,
     ];
 
     public function store(): BelongsTo
