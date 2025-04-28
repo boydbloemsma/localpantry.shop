@@ -12,8 +12,18 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['"Work Sans"', ...defaultTheme.fontFamily.sans],
+                serif: ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
             },
+            colors: {
+                primary: '#FAF9F6',
+                accent: {
+                    DEFAULT: '#8DA05F',
+                    secondary: '#D97D54',
+                },
+                neutral: '#333333',
+                highlight: '#F4C542',
+            }
         },
     },
 
