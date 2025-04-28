@@ -5,7 +5,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\StorefrontController;
-use App\Models\Store;
 use Illuminate\Support\Facades\Route;
 
 Route::domain(config('app.url'))->group(function () {
