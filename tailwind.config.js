@@ -9,6 +9,12 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
+    /**
+     * primary: amber-600 hover: amber-700 text-white
+     * secondary: rose-300 hover: rose-400
+     * background: stone-50 or stone-100
+     * text: body: text-stone-800 headings: text-stone-900
+     */
     theme: {
         extend: {
             fontFamily: {

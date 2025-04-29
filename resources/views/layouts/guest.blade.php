@@ -9,22 +9,63 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=playfair-display:400,700|work-sans:400,600,700" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <body class="bg-stone-50 text-stone-800 p-6 lg:p-8 min-h-screen font-sans">
+        <header class="w-full text-sm mb-6 not-has-[nav]:hidden">
+            @if (Route::has('login'))
+                <nav class="flex items-center justify-end gap-4">
+                    @auth
+                        <a
+                            href="{{ url('/dashboard') }}"
+                            class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
+                        >
+                            Dashboard
+                        </a>
+                    @else
+                        <a
+                            href="{{ route('login') }}"
+                            class="inline-block px-5 py-1.5 border border-transparent hover:border-stone-300 rounded-sm text-sm leading-normal"
+                        >
+                            Log in
+                        </a>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+                        @if (Route::has('register'))
+                            <a
+                                href="{{ route('register') }}"
+                                class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal">
+                                Register
+                            </a>
+                        @endif
+                    @endauth
+                </nav>
+            @endif
+        </header>
+
+        {{ $slot }}
+
+        <footer>
+            <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+                <nav class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6" aria-label="Footer">
+                    <a href="#" class="hover:text-stone-900">About</a>
+                    <a href="#" class="hover:text-stone-900">Blog</a>
+                    <a href="#" class="hover:text-stone-900">Jobs</a>
+                    <a href="#" class="hover:text-stone-900">Press</a>
+                    <a href="#" class="hover:text-stone-900">Accessibility</a>
+                    <a href="#" class="hover:text-stone-900">Partners</a>
+                </nav>
+
+                <p class="mt-10 text-center text-sm/6">
+                    &copy; {{ date('Y') }} localpantry.shop. All rights reserved.
+                </p>
             </div>
-        </div>
+        </footer>
+
+        @if (Route::has('login'))
+            <div class="h-14.5 hidden lg:block"></div>
+        @endif
     </body>
 </html>
