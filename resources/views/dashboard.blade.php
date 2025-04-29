@@ -1,4 +1,19 @@
 <x-app-layout>
+    <div class="py-10 bg-stone-100 rounded-xl min-h-screen">
+        <header>
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-semibold font-serif tracking-tight text-stone-900">
+                    Your stores
+                </h1>
+            </div>
+        </header>
+        <main>
+            <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+                <p>testing</p>
+            </div>
+        </main>
+    </div>
+
     <div class="p-8">
         @if (!$store)
             <div class="text-center">
