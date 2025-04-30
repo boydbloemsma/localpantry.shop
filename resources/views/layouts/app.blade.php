@@ -17,18 +17,20 @@
     <body class="bg-stone-50 text-stone-800 p-6 lg:p-8 min-h-screen font-sans">
         @include('layouts.navigation')
 
-        <!-- Page Heading -->
-        @isset($header)
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endisset
+        <div class="py-10 bg-stone-100 rounded-xl min-h-screen">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <!-- Page Heading -->
+                @isset($header)
+                    <header class="pb-8">
+                        {{ $header }}
+                    </header>
+                @endisset
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+                <!-- Page Content -->
+                <main>
+                    {{ $slot }}
+                </main>
+            </div>
+        </div>
     </body>
 </html>

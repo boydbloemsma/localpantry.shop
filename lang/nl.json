@@ -29,5 +29,9 @@
     "This is a secure area of the application. Please confirm your password before continuing.": "Dit is een beveiligd gedeelte van de app. Bevestig uw wachtwoord voordat u verdergaat.",
     "Resend Verification Email": "Stuur Verificatie Email Opnieuw",
     "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.": "Bedankt voor je aanmelding! Zou je, voordat je begint, je e-mailadres kunnen verifiëren door te klikken op de link die we je zojuist hebben gestuurd? Als je de e-mail niet hebt ontvangen, sturen we je graag een nieuwe.",
-    "A new verification link has been sent to the email address you provided during registration.": "Er is een nieuwe verificatielink verzonden naar het e-mailadres dat u bij uw registratie hebt opgegeven."
+    "A new verification link has been sent to the email address you provided during registration.": "Er is een nieuwe verificatielink verzonden naar het e-mailadres dat u bij uw registratie hebt opgegeven.",
+    "Your Stores": "Uw Winkels",
+    "Profile": "Uw Profiel",
+    "Add Store": "Winkel Toevoegen",
+    "Manage Store": "Winkel Beheren"
 }
