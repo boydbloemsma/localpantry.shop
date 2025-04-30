@@ -17,7 +17,11 @@
     <body class="bg-stone-50 text-stone-800 p-6 lg:p-8 min-h-screen font-sans">
         <header class="w-full text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
+                <nav class="flex items-center justify-between">
+                    <a href="{{ route('welcome') }}" class="text-xl">
+                        localpantry<span class="text-sm">.shop</span>
+                    </a>
+
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
@@ -26,21 +30,23 @@
                             {{ __('Dashboard') }}
                         </a>
                     @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 border border-transparent hover:border-stone-300 rounded-sm text-sm leading-normal"
-                        >
-                            {{ __('Log in') }}
-                        </a>
-
-                        @if (Route::has('register'))
+                        <div class="flex items-center gap-4">
                             <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
+                                href="{{ route('login') }}"
+                                class="inline-block px-5 py-1.5 border border-transparent hover:border-stone-300 rounded-sm text-sm leading-normal"
                             >
-                                {{ __('Register') }}
+                                {{ __('Log in') }}
                             </a>
-                        @endif
+
+                            @if (Route::has('register'))
+                                <a
+                                    href="{{ route('register') }}"
+                                    class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
+                                >
+                                    {{ __('Register') }}
+                                </a>
+                            @endif
+                        </div>
                     @endauth
                 </nav>
             @endif
