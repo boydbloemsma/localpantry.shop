@@ -16,7 +16,6 @@
     "Register": "Registreren",
     "Log in": "Inloggen",
     "Log out": "Uitloggen",
-    "Log out": "Uitloggen",
     "Name": "Naam",
     "Password": "Wachtwoord",
     "Confirm Password": "Wachtwoord controle",
@@ -33,5 +32,12 @@
     "Your Stores": "Uw Winkels",
     "Profile": "Uw Profiel",
     "Add Store": "Winkel Toevoegen",
-    "Manage Store": "Winkel Beheren"
+    "Manage Store": "Winkel Beheren",
+    "Add Product": "Product Toevoegen",
+    "Create Store": "Winkel Toevoegen",
+    "Return": "Terug",
+    "Store Information": "Winkel Informatie",
+    "Description": "Beschrijving",
+    "Save": "Opslaan",
+    "No stores yet. Get started now by clicking the link in the top right.": "Nog geen winkels. Klink op de link rechtsbovenin om te beginnen."
 }

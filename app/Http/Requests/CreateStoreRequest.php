@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Store;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 
 class CreateStoreRequest extends FormRequest
@@ -36,10 +38,20 @@ class CreateStoreRequest extends FormRequest
                     return;
                 }
 
-                if ($this->user()->store()->count() >= 1) {
+                if ($this->user()->stores()->count() >= 1) {
                     $validator->errors()->add(
                         'name',
                         'You have reached the maximum number of stores.',
+                    );
+
+                    return;
+                }
+
+                $slug = Str::slug($this->input('name'));
+                if (Store::where('slug', $slug)->exists()) {
+                    $validator->errors()->add(
+                        'name',
+                        'A store with this name (or similar) already exists.',
                     );
                 }
             }

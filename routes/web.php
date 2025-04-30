@@ -16,17 +16,20 @@ Route::domain(config('app.url'))->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
 
-        Route::get('/store/create', [StoreController::class, 'create'])
-            ->name('store.create');
+        Route::get('/stores/create', [StoreController::class, 'create'])
+            ->name('stores.create');
+
+        Route::get('/stores/{store:slug}', [StoreController::class, 'show'])
+            ->name('stores.show');
 
         Route::post('/store', [StoreController::class, 'store'])
             ->name('store.store');
 
-        Route::get('/product/create', [ProductController::class, 'create'])
-            ->name('product.create');
+        Route::get('/products/create', [ProductController::class, 'create'])
+            ->name('products.create');
 
-        Route::post('/product', [ProductController::class, 'store'])
-            ->name('product.store');
+        Route::post('/products', [ProductController::class, 'store'])
+            ->name('products.store');
     });
 
     Route::middleware('auth')->group(function () {
