@@ -19,13 +19,13 @@ Route::domain(config('app.url'))->group(function () {
         Route::get('/stores/create', [StoreController::class, 'create'])
             ->name('stores.create');
 
-        Route::get('/stores/{store:slug}', [StoreController::class, 'show'])
-            ->name('stores.show');
-
         Route::post('/store', [StoreController::class, 'store'])
             ->name('store.store');
 
-        Route::get('/products/create', [ProductController::class, 'create'])
+        Route::get('/stores/{store:slug}', [StoreController::class, 'show'])
+            ->name('stores.show');
+
+        Route::get('/store/{store:slug}/products/create', [ProductController::class, 'create'])
             ->name('products.create');
 
         Route::post('/products', [ProductController::class, 'store'])

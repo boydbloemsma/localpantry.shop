@@ -21,8 +21,8 @@ class StoreController extends Controller
 
     public function store(CreateStoreRequest $request, CreateStoreAction $action)
     {
-        $action->handle($request->user(), $request->validated());
+        $store = $action->handle($request->user(), $request->validated());
 
-        return to_route('dashboard');
+        return to_route('stores.show', $store);
     }
 }

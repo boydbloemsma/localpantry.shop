@@ -1,39 +1,59 @@
 <x-app-layout>
-    <div class="max-w-xl mx-auto py-8">
-        <h1 class="text-2xl font-bold mb-6">Create Your Product</h1>
+    <x-slot name="header">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <h1 class="text-3xl font-semibold font-serif tracking-tight text-stone-900">
+                {{ __('Create Product') }}
+            </h1>
 
-        <form method="POST" enctype="multipart/form-data" action="{{ route('products.store') }}" class="space-y-6">
-            @csrf
+            <a href="{{ route('stores.show', $store) }}" class="gap-2 inline-flex items-center text-sm/6 ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                    <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
+                </svg>
+                {{ __('Return') }}
+            </a>
+        </div>
+    </x-slot>
 
-            <div>
-                <label class="block font-medium">Product Name</label>
-                <input type="text" name="name" required class="w-full border rounded p-2" value="{{ old('name') }}">
-                @error('name') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
-            </div>
+    <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+        <div class="max-w-xl">
+            <section>
+                <h2 class="text-lg font-medium text-stone-900">
+                    {{ __('Product Information') }}
+                </h2>
 
-            <div>
-                <label class="block font-medium">Description</label>
-                <textarea name="description" class="w-full border rounded p-2">{{ old('description') }}</textarea>
-                @error('description') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
-            </div>
+                <form method="post" action="{{ route('products.store', $store) }}" class="mt-6 space-y-6">
+                    @csrf
 
-            <div>
-                <label class="block font-medium">Price</label>
-                <input type="number" name="price" required min="1" step="1" class="w-full border rounded p-2" value="{{ old('price') }}">
-                @error('price') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
-            </div>
+                    <div>
+                        <x-input-label for="name" :value="__('Name')" />
+                        <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name')" required autofocus />
+                        <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                    </div>
 
-            <div>
-                <label class="block font-medium">Image</label>
-                <input type="file" name="image" required class="w-full border rounded p-2" value="{{ old('image') }}">
-                @error('image') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
-            </div>
+                    <div>
+                        <x-input-label for="description" :value="__('Description')" />
+                        <textarea id="description" name="description" class="mt-1 block w-full border-stone-300 focus:border-stone-500 focus:ring-stone-500 rounded-md shadow-sm" required>{{ old('description') }}</textarea>
+                        <x-input-error class="mt-2" :messages="$errors->get('description')" />
+                    </div>
 
-            <div>
-                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                    Create Product
-                </button>
-            </div>
-        </form>
+                    <div>
+                        <x-input-label for="price" :value="__('Price')" />
+                        <x-text-input id="price" name="price" type="number" class="mt-1 block w-full" :value="old('price')" required />
+                        <x-input-error class="mt-2" :messages="$errors->get('price')" />
+                    </div>
+
+                    <div>
+                        <x-input-label for="image" :value="__('Image')" />
+                        <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" :value="old('image')" required />
+
+                        <x-input-error class="mt-2" :messages="$errors->get('image')" />
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <x-primary-button>{{ __('Save') }}</x-primary-button>
+                    </div>
+                </form>
+            </section>
+        </div>
     </div>
 </x-app-layout>

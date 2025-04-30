@@ -9,10 +9,11 @@ use Illuminate\Support\Str;
 
 class CreateStoreAction
 {
-    public function handle(User $user, array $attributes): void
+    public function handle(User $user, array $attributes): ?Store
     {
-        DB::transaction(function () use ($user, $attributes) {
-            Store::create([
+        $store = null;
+        DB::transaction(function () use (&$store, $user, $attributes) {
+            $store = Store::create([
                 'user_id' => $user->id,
                 'name' => $attributes['name'],
                 'slug' => Str::slug($attributes['name']),
@@ -22,6 +23,8 @@ class CreateStoreAction
 
         // todo
         // broadcast(new StoreCreated($store))->toOthers();
+
+        return $store;
     }
 }
 
