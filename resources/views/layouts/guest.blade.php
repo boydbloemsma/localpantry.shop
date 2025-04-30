@@ -23,21 +23,22 @@
                             href="{{ url('/dashboard') }}"
                             class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
                         >
-                            Dashboard
+                            {{ __('Dashboard') }}
                         </a>
                     @else
                         <a
                             href="{{ route('login') }}"
                             class="inline-block px-5 py-1.5 border border-transparent hover:border-stone-300 rounded-sm text-sm leading-normal"
                         >
-                            Log in
+                            {{ __('Log in') }}
                         </a>
 
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal">
-                                Register
+                                class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
+                            >
+                                {{ __('Register') }}
                             </a>
                         @endif
                     @endauth
