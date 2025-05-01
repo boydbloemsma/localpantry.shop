@@ -11,6 +11,8 @@ class StoreController extends Controller
 {
     public function show(Store $store)
     {
+        $store->load('products');
+
         return view('stores.show', compact('store'));
     }
 

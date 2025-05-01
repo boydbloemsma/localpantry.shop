@@ -28,8 +28,14 @@ Route::domain(config('app.url'))->group(function () {
         Route::get('/store/{store:slug}/products/create', [ProductController::class, 'create'])
             ->name('products.create');
 
-        Route::post('/products', [ProductController::class, 'store'])
+        Route::post('/store/{store:slug}/products', [ProductController::class, 'store'])
             ->name('products.store');
+
+        Route::get('/store/{store:slug}/products/{product:slug}', [ProductController::class, 'edit'])
+            ->name('products.edit');
+
+        Route::patch('/store/{store:slug}/products/{product:slug}', [ProductController::class, 'update'])
+            ->name('products.update');
     });
 
     Route::middleware('auth')->group(function () {

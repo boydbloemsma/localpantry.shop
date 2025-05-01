@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +28,14 @@ class AppServiceProvider extends ServiceProvider
         $this->configureCommands();
         $this->configureModels();
         $this->configureUrl();
+        $this->configureGates();
+    }
+
+    private function configureGates(): void
+    {
+        Gate::define('update-product', function (User $user, Product $product) {
+            return $user->stores()->where('id', $product->store_id)->exists();
+        });
     }
 
     private function configureCommands(): void

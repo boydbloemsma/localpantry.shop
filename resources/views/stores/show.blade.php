@@ -25,4 +25,41 @@
     <p class="pt-2">
         {{ $store->description }}
     </p>
+
+    <h2 class="mt-2 text-pretty text-2xl text-stone-900 font-semibold font-serif sm:text-2xl lg:text-balance">
+        {{ __('Products') }}
+    </h2>
+
+    <div class="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
+        @forelse($store->products as $product)
+            <div class="group relative">
+                <div class="relative">
+                    <img src="{{ asset($product->image_path) }}" alt="{{ $product->name }}" class="aspect-[4/3] w-full rounded-lg bg-gray-100 object-cover">
+                    <div class="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100" aria-hidden="true">
+                        <div class="w-full rounded-md bg-white/75 px-4 py-2 text-center text-sm font-medium text-gray-900 backdrop-blur backdrop-filter">
+                            {{ __('Manage Product') }}
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-base font-medium text-stone-900">
+                    <h3>
+                        <a href="{{ route('products.edit', compact('store', 'product')) }}">
+                            <span aria-hidden="true" class="absolute inset-0"></span>
+                            {{ $product->name }}
+                        </a>
+                    </h3>
+                </div>
+                <p class="mt-1 text-sm">
+                    {{ $product->price }}
+                </p>
+                <p class="mt-1 text-sm">
+                    {{ $product->description }}
+                </p>
+            </div>
+        @empty
+            <p>
+                {{ __('No stores yet. Get started now by clicking the link in the top right.') }}
+            </p>
+        @endforelse
+    </div>
 </x-app-layout>

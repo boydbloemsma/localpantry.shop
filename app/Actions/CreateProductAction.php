@@ -3,20 +3,24 @@
 namespace App\Actions;
 
 use App\Models\Product;
-use App\Models\User;
+use App\Models\Store;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class CreateProductAction
 {
-    public function handle(User $user, array $attributes, UploadedFile $image): void
+    public function handle(
+        array $attributes,
+        UploadedFile $image,
+        Store $store,
+    ): void
     {
         $path = $image->store('products', 'public');
 
-        DB::transaction(function () use ($user, $attributes, $path) {
+        DB::transaction(function () use ($attributes, $path, $store) {
             Product::create([
-                'store_id' => $user->store->id,
+                'store_id' => $store->id,
                 'name' => $attributes['name'],
                 'slug' => Str::slug($attributes['name']),
                 'description' => $attributes['description'],
