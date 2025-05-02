@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'cloudflare' => [
+        'token' => env('CLOUDFLARE_API_TOKEN'),
+        'account_id' => env('CLOUDFLARE_ACCOUNT_ID'),
+        'account_hash' => env('CLOUDFLARE_ACCOUNT_HASH'),
+    ],
+
 ];

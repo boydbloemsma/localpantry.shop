@@ -2,10 +2,13 @@
 
 namespace App\Actions;
 
+use App\Http\Integrations\Cloudflare\CloudflareConnector;
+use App\Http\Integrations\Cloudflare\Image;
+use App\Http\Integrations\Cloudflare\Requests\DeleteImageRequest;
+use App\Http\Integrations\Cloudflare\Requests\UploadImageRequest;
 use App\Models\Product;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class UpdateProductAction
@@ -13,17 +16,20 @@ class UpdateProductAction
     public function handle(
         array $attributes,
         Product $product,
-        ?UploadedFile $image,
+        ?UploadedFile $image_file,
     ): void
     {
-        DB::transaction(function () use ($attributes, $product, $image) {
-            if ($image) {
-                if ($product->image_path && Storage::disk('public')->exists($product->image_path)) {
-                    Storage::disk('public')->delete($product->image_path);
+        DB::transaction(function () use ($attributes, $product, $image_file) {
+            $cloudflare = new CloudflareConnector();
+
+            if ($image_file) {
+                if ($product->image_id) {
+                    $cloudflare->send(new DeleteImageRequest($product->image_id));
                 }
 
-                $path = $image->store('products', 'public');
-                $product->image_path = $path;
+                /** @var Image $image */
+                $image = $cloudflare->send(new UploadImageRequest($image_file));
+                $product->image_id = $image->id;
             }
 
             $product->update([

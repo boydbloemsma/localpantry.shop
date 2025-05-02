@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Casts\MoneyCast;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -13,7 +14,7 @@ class Product extends Model
         'name',
         'description',
         'price',
-        'image_path',
+        'image_id',
     ];
 
     protected $casts = [
@@ -25,9 +26,17 @@ class Product extends Model
         return $this->belongsTo(Store::class);
     }
 
-    public function getimageUrlAttribute()
+    protected function imageUrl(): Attribute
     {
-        return asset('storage/' . $this->image_path);
+        return Attribute::make(
+            get: function (mixed $value, array $attributes): string {
+                return sprintf(
+                    'https://imagedelivery.net/%s/%s/public',
+                    config('services.cloudflare.account_hash'),
+                    $attributes['image_id'],
+                );
+            }
+        );
     }
 
     public function resolveRouteBinding($value, $field = null)

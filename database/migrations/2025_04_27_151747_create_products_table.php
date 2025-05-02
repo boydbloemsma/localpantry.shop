@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('description')->nullable();
             $table->integer('price'); // in cents
-            $table->string('image_path')->nullable();
+            $table->string('image_id')->nullable();
             $table->timestamps();
 
             $table->unique(['store_id', 'slug']);

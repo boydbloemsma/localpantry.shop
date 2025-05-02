@@ -34,7 +34,7 @@
         @forelse($store->products as $product)
             <div class="group relative">
                 <div class="relative">
-                    <img src="{{ asset($product->image_path) }}" alt="{{ $product->name }}" class="aspect-[4/3] w-full rounded-lg bg-gray-100 object-cover">
+                    <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="aspect-[4/3] w-full rounded-lg bg-gray-100 object-cover">
                     <div class="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100" aria-hidden="true">
                         <div class="w-full rounded-md bg-white/75 px-4 py-2 text-center text-sm font-medium text-gray-900 backdrop-blur backdrop-filter">
                             {{ __('Manage Product') }}
