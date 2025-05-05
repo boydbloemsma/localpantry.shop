@@ -43,9 +43,10 @@ class ProductsRelationManager extends RelationManager
                     ->rows(10)
                     ->cols(20)
                     ->nullable(),
-                Forms\Components\FileUpload::make('image_path')
-                    ->label('Image')
-                    ->nullable(),
+//                Forms\Components\FileUpload::make('image')
+//                    ->nullable()
+//                    ->image(),
+                Forms\Components\TextInput::make('image_id'),
             ]);
     }
 
@@ -54,7 +55,7 @@ class ProductsRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('name')
             ->columns([
-                Tables\Columns\ImageColumn::make('image_path')
+                Tables\Columns\ImageColumn::make('image_url')
                     ->label('Image'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),

@@ -9,25 +9,44 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=playfair-display:400,700|work-sans:400,600,700" rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50 text-gray-900">
-<header class="p-4 bg-white shadow-md">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 class="text-2xl font-bold">{{ $store->name ?? 'LocalPantry' }}</h1>
-    </div>
-</header>
+    <body class="bg-stone-50 text-stone-800 p-6 lg:p-8 min-h-screen font-sans">
+        <header class="w-full text-sm mb-6 not-has-[nav]:hidden">
+            <nav class="flex items-center justify-between">
+                <a href="{{ route('welcome') }}" class="text-xl">
+                    {{ $store->name }}
+                </a>
 
-<main class="max-w-6xl mx-auto mt-8 p-4">
-    @yield('content')
-</main>
+                <div class="flex items-center gap-4">
+                    <a
+                        href="#"
+                        class="inline-block px-5 py-1.5 border border-transparent hover:border-stone-300 rounded-sm text-sm leading-normal"
+                    >
+                        {{ __('Contact') }}
+                    </a>
 
-<footer class="p-4 mt-12 text-center text-sm text-gray-500">
-    &copy; {{ date('Y') }} LocalPantry
-</footer>
-</body>
+                    <a
+                        href="#"
+                        class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
+                    >
+                        {{ __('Share') }}
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        @yield('content')
+
+        <footer>
+            <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+                <p class="mt-10 text-center text-sm/6">
+                    &copy; {{ date('Y') }} localpantry.shop. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
 </html>
-

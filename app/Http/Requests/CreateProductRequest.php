@@ -37,7 +37,7 @@ class CreateProductRequest extends FormRequest
                     return;
                 }
 
-                if ($this->store->products()->count() >= 5) {
+                if ($this->store->products()->count() >= 6) {
                     $validator->errors()->add(
                         'name',
                         'You have reached the maximum number of products.',

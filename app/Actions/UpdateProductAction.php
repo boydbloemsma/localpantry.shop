@@ -27,8 +27,11 @@ class UpdateProductAction
                     $cloudflare->send(new DeleteImageRequest($product->image_id));
                 }
 
+                $response = $cloudflare->send(new UploadImageRequest($image_file));
+
                 /** @var Image $image */
-                $image = $cloudflare->send(new UploadImageRequest($image_file));
+                $image = $response->dtoOrFail();
+
                 $product->image_id = $image->id;
             }
 
