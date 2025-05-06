@@ -1,4 +1,4 @@
-# LocalPantry Launch Checklist
+# localpantry Launch Checklist
 
 This checklist outlines the features required to confidently launch LocalPantry.  
 Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
@@ -21,7 +21,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Core Functionality (Nice to Have)
 
-- [ ] Store slugs are validated for uniqueness and readability
+- [x] Store slugs are validated for uniqueness and readability
 - [x] Automatic resizing and optimization of uploaded images
 
 ---
@@ -30,8 +30,8 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 - [ ] Dashboard for artisans to manage products and store info
 - [ ] Products and store details can be updated or deleted
-- [ ] Admin panel to view and manage stores
-- [ ] Upload limits and image constraints are enforced
+- [x] Admin panel to view and manage stores
+- [x] Upload limits and image constraints are enforced
 
 ---
 
@@ -59,8 +59,8 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Quality & Polish (MVP)
 
-- [ ] Working 404 and fallback pages
-- [ ] Clear form validation and error messages
+- [x] Working 404 and fallback pages
+- [ ] Clear form validation and error messages (translations)
 - [ ] Favicon is in place
 - [ ] Page titles and meta descriptions are meaningful
 - [ ] Storefront meta tags reflect store info
@@ -86,7 +86,6 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 ## Feedback & Visibility (Nice to Have)
 
 - [ ] Short onboarding help/tips after sign-up
-- [ ] Log/store user actions for debugging
 - [ ] Per-store basic analytics (views counter, etc.)
 
 ---

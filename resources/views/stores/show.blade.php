@@ -42,7 +42,7 @@
                 </div>
                 <div class="mt-4 text-base font-medium text-stone-900">
                     <h3>
-                        <a href="{{ route('products.edit', compact('store', 'product')) }}">
+                        <a href="{{ route('products.edit', ['store' => $store, 'product' => $product]) }}">
                             <span aria-hidden="true" class="absolute inset-0"></span>
                             {{ $product->name }}
                         </a>

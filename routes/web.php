@@ -27,22 +27,22 @@ Route::domain(config('app.url'))->group(function () {
         Route::get('/stores/create', [StoreController::class, 'create'])
             ->name('stores.create');
 
-        Route::post('/store', [StoreController::class, 'store'])
+        Route::post('/stores', [StoreController::class, 'store'])
             ->name('store.store');
 
         Route::get('/stores/{store:slug}', [StoreController::class, 'show'])
             ->name('stores.show');
 
-        Route::get('/store/{store:slug}/products/create', [ProductController::class, 'create'])
+        Route::get('/stores/{store:slug}/products/create', [ProductController::class, 'create'])
             ->name('products.create');
 
         Route::post('/store/{store:slug}/products', [ProductController::class, 'store'])
             ->name('products.store');
 
-        Route::get('/store/{store:slug}/products/{product:slug}', [ProductController::class, 'edit'])
+        Route::get('/stores/{store:slug}/products/{product:slug}/edit', [ProductController::class, 'edit'])
             ->name('products.edit');
 
-        Route::patch('/store/{store:slug}/products/{product:slug}', [ProductController::class, 'update'])
+        Route::patch('/stores/{store:slug}/products/{product:slug}', [ProductController::class, 'update'])
             ->name('products.update');
     });
 

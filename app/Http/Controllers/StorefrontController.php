@@ -12,11 +12,17 @@ class StorefrontController extends Controller
     {
         $products = $store->products()->latest()->get();
 
-        return view('storefront.index', compact('store', 'products'));
+        return view('storefront.index', [
+            'store' => $store,
+            'products' => $products,
+        ]);
     }
 
     public function show(Store $store, Product $product)
     {
-        return view('storefront.show', compact('store', 'product'));
+        return view('storefront.show', [
+            'store' => $store,
+            'product' => $product,
+        ]);
     }
 }

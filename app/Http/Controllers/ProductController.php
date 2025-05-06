@@ -9,16 +9,23 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
     public function create(Store $store)
     {
-        return view('products.create', compact('store'));
+        Gate::authorize('create', [Product::class, $store]);
+
+        return view('products.create', [
+            'store' => $store,
+        ]);
     }
 
     public function store(Store $store, CreateProductRequest $request, CreateProductAction $action)
     {
+        Gate::authorize('create', [Product::class, $store]);
+
         $action->handle(
             $request->validated(),
             $request->file('image'),
@@ -30,11 +37,18 @@ class ProductController extends Controller
 
     public function edit(Store $store, Product $product)
     {
-        return view('products.edit', compact('store', 'product'));
+        Gate::authorize('update', $product);
+
+        return view('products.edit', [
+            'store' => $store,
+            'product' => $product,
+        ]);
     }
 
     public function update(Store $store, Product $product, UpdateProductRequest $request, UpdateProductAction $action)
     {
+        Gate::authorize('update', $product);
+
         $action->handle(
             $request->validated(),
             $product,
