@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -11,6 +12,13 @@ Route::domain(config('app.url'))->group(function () {
     Route::get('/', function () {
         return view('welcome');
     })->name('welcome');
+
+    Route::get('/contact', [ContactController::class, 'create'])
+        ->name('contact.create');
+
+    Route::post('/contact', [ContactController::class, 'store'])
+        ->middleware(['throttle:contact'])
+        ->name('contact.store');
 
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])

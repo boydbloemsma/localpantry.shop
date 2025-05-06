@@ -9,13 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Store extends Model
 {
-    public $fillable = [
-        'user_id',
-        'name',
-        'slug',
-        'description',
-    ];
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

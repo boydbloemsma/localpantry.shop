@@ -13,14 +13,6 @@ use Illuminate\Support\Carbon;
 
 class Product extends Model
 {
-    public $fillable = [
-        'store_id',
-        'name',
-        'description',
-        'price',
-        'image_id',
-    ];
-
     protected $casts = [
         'price' => MoneyCast::class,
     ];

@@ -4,9 +4,12 @@ namespace App\Providers;
 
 use App\Models\Product;
 use App\Models\User;
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -59,5 +62,12 @@ class AppServiceProvider extends ServiceProvider
         }
 
         URL::forceScheme('https');
+    }
+
+    private function configureRateLimiters(): void
+    {
+        RateLimiter::for('contact', function (Request $request) {
+            return Limit::perMinute(3)->by($request->ip());
+        });
     }
 }
