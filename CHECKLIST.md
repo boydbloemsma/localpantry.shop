@@ -44,9 +44,9 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 ## Communication & Trust (MVP)
 
 - [ ] About page explaining what localpantry is
-- [x] Contact page or visible support email
 - [ ] Privacy policy and terms of use in the footer
 - [ ] Stores can add optional contact details (e.g. email, social links)
+- [x] Contact page or visible support email
 
 ---
 
@@ -58,11 +58,11 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Quality & Polish (MVP)
 
-- [x] Working 404 and fallback pages
 - [ ] Clear form validation and error messages (translations)
 - [ ] Favicon is in place
 - [ ] Page titles and meta descriptions are meaningful
 - [ ] Storefront meta tags reflect store info
+- [x] Working 404 and fallback pages
 
 ---
 
@@ -77,7 +77,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 ## Feedback & Visibility (MVP)
 
 - [ ] Demo store live and accessible (e.g. `demo.localpantry.shop`)
-- [x] Basic site-wide analytics (e.g. Plausible or Fathom)
+- [x] Basic site-wide analytics (Fathom)
 - [x] Feedback channel (email address, contact form, etc.)
 
 ---

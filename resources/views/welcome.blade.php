@@ -7,7 +7,7 @@
                         {{ __("Share your craft with the world") }}.
                     </h1>
                     <p class="mt-8 text-pretty text-lg sm:text-xl/8">
-                        {{ __("Create a beautiful page for your local products — no tech skills needed") }}.
+                        {{ __("Create a beautiful page for your local products, no tech skills needed") }}.
                     </p>
                     <div class="mt-10">
                         <a

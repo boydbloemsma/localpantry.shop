@@ -1,9 +1,12 @@
 <x-guest-layout>
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div class="sm:mx-auto sm:w-full sm:max-w-lg">
             <h1 class="text-3xl font-semibold font-serif tracking-tight text-stone-900">
                 {{ __('Contact') }}
             </h1>
+            <p class="mt-2 text-sm/6">
+                {{ __('You can always contact us with any questions, we will get back to you as fast as possible.') }}
+            </p>
 
             <x-auth-session-status class="my-4" :status="session('status')" />
 

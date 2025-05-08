@@ -65,14 +65,15 @@
                 <nav class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6" aria-label="Footer">
                     <a href="#" class="hover:text-stone-900">About</a>
                     <a href="#" class="hover:text-stone-900">Blog</a>
-                    <a href="#" class="hover:text-stone-900">Jobs</a>
-                    <a href="#" class="hover:text-stone-900">Press</a>
-                    <a href="#" class="hover:text-stone-900">Accessibility</a>
-                    <a href="#" class="hover:text-stone-900">Partners</a>
+                    <a href="{{ route('contact.create') }}" class="hover:text-stone-900">
+                        {{ __('Contact') }}
+                    </a>
+                    <a href="#" class="hover:text-stone-900">Terms of Service</a>
+                    <a href="#" class="hover:text-stone-900">Privacy Policy</a>
                 </nav>
 
                 <p class="mt-10 text-center text-sm/6">
-                    &copy; {{ date('Y') }} localpantry.shop. All rights reserved.
+                    &copy; 2025 localpantry.shop. All rights reserved.
                 </p>
             </div>
         </footer>
