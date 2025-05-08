@@ -21,6 +21,6 @@ class ProductPolicy
 
     public function delete(User $user, Product $product): bool
     {
-        return false;
+        return $product->store->user_id === $user->id;
     }
 }

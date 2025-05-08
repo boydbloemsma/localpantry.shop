@@ -7,12 +7,9 @@ use Illuminate\Support\Facades\Gate;
 
 class UpdateProductRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return Gate::allows('update-product', $this->product);
+        return Gate::allows('update', $this->product);
     }
 
     public function rules(): array

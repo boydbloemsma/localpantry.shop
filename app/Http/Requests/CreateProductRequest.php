@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Validator;
 
 class CreateProductRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        // todo
-        // return Gate::allows('create-product');
-        return true;
+        return Gate::allows('create', [Product::class, $this->store]);
     }
 
     public function rules(): array

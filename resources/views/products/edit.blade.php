@@ -53,6 +53,17 @@
                         <x-primary-button>{{ __('Save') }}</x-primary-button>
                     </div>
                 </form>
+
+                <div class="mt-10 border-t pt-6">
+                    <form method="post" action="{{ route('products.destroy', ['store' => $store, 'product' => $product]) }}" class="mt-6">
+                        @csrf
+                        @method('delete')
+
+                        <x-secondary-button type="submit">
+                            {{ __('Delete Product') }}
+                        </x-secondary-button>
+                    </form>
+                </div>
             </section>
         </div>
     </div>

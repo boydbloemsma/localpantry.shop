@@ -7,9 +7,8 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Core Functionality (MVP)
 
-- [ ] Users can add and edit products
+- [x] Users can add and edit products
     - [x] Name, price, image, description
-    - [ ] Mark products as available/unavailable
 - [x] Users can sign up and log in
 - [x] Users can create a store
     - [x] Set store name and description
@@ -90,6 +89,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Post-Launch (Nice to Have)
 
+- [ ] Mark products as available/unavailable
 - [ ] Per-store basic analytics (views counter, etc.)
 - [ ] Custom domains (`yourbrand.com`)
 - [ ] Welcome email after sign-up

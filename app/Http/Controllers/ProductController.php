@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CreateProductAction;
+use App\Actions\DeleteProductAction;
 use App\Actions\UpdateProductAction;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -24,8 +25,6 @@ class ProductController extends Controller
 
     public function store(Store $store, CreateProductRequest $request, CreateProductAction $action)
     {
-        Gate::authorize('create', [Product::class, $store]);
-
         $action->handle(
             $request->validated(),
             $request->file('image'),
@@ -54,6 +53,15 @@ class ProductController extends Controller
             $product,
             $request->file('image'),
         );
+
+        return to_route('stores.show', $store);
+    }
+
+    public function destroy(Store $store, Product $product, DeleteProductAction $action)
+    {
+        Gate::authorize('delete', $product);
+
+        $action->handle($product);
 
         return to_route('stores.show', $store);
     }

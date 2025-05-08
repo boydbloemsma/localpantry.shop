@@ -52,6 +52,8 @@ Route::domain(config('app.url'))->group(function () {
                     ->name('products.edit');
                 Route::patch('/{store:slug}/products/{product:slug}', [ProductController::class, 'update'])
                     ->name('products.update');
+                Route::delete('/{store:slug}/products/{product:slug}', [ProductController::class, 'destroy'])
+                    ->name('products.destroy');
             });
 
             Route::prefix('/profile')->group(function () {
