@@ -7,13 +7,13 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Core Functionality (MVP)
 
+- [ ] Users can add and edit products
+    - [x] Name, price, image, description
+    - [ ] Mark products as available/unavailable
 - [x] Users can sign up and log in
 - [x] Users can create a store
     - [x] Set store name and description
 - [x] Stores receive subdomains like `yourbrand.localpantry.shop`
-- [ ] Users can add and edit products
-    - [x] Name, price, image, description
-    - [ ] Mark products as available/unavailable
 - [x] Public store pages are viewable without login
 - [x] Site is responsive and works well on mobile
 
@@ -53,7 +53,6 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 ## Communication & Trust (Nice to Have)
 
 - [ ] Storefront displays contact/social links attractively
-- [ ] Content moderation or report feature
 
 ---
 
@@ -77,26 +76,26 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Feedback & Visibility (MVP)
 
-- [x] Basic site-wide analytics (e.g. Plausible or Fathom)
 - [ ] Demo store live and accessible (e.g. `demo.localpantry.shop`)
+- [x] Basic site-wide analytics (e.g. Plausible or Fathom)
 - [x] Feedback channel (email address, contact form, etc.)
 
 ---
 
 ## Feedback & Visibility (Nice to Have)
 
-- [ ] Short onboarding help/tips after sign-up
-- [ ] Per-store basic analytics (views counter, etc.)
+- [x] Short onboarding help/tips after sign-up
 
 ---
 
 ## Post-Launch (Nice to Have)
 
+- [ ] Per-store basic analytics (views counter, etc.)
+- [ ] Custom domains (`yourbrand.com`)
 - [ ] Welcome email after sign-up
 - [ ] Blog or updates section
-- [x] Multi-language support
-- [ ] Custom domains (`yourbrand.com`)
 - [ ] Product search or filter
 - [ ] Store reviews or testimonials
+- [x] Multi-language support
 
 ---

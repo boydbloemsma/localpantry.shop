@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\StorefrontController;
+use App\Http\Middleware\EnsureUserHasCompletedOnboarding;
 use Illuminate\Support\Facades\Route;
 
 Route::domain(config('app.url'))->group(function () {
@@ -21,35 +23,43 @@ Route::domain(config('app.url'))->group(function () {
         ->name('contact.store');
 
     Route::middleware(['auth', 'verified'])->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])
-            ->name('dashboard');
+        Route::prefix('/onboarding')->group(function () {
+            Route::get('/', [OnboardingController::class, 'index'])
+                ->name('onboarding.index');
+            Route::post('/store', [OnboardingController::class, 'createStore'])
+                ->name('onboarding.store');
+            Route::post('/store/{store:slug}/product', [OnboardingController::class, 'createProduct'])
+                ->name('onboarding.product');
+        });
 
-        Route::get('/stores/create', [StoreController::class, 'create'])
-            ->name('stores.create');
+        Route::middleware([EnsureUserHasCompletedOnboarding::class])->group(function () {
+            Route::get('/dashboard', [DashboardController::class, 'index'])
+                ->name('dashboard');
 
-        Route::post('/stores', [StoreController::class, 'store'])
-            ->name('store.store');
+            Route::prefix('/stores')->group(function () {
+                Route::get('/create', [StoreController::class, 'create'])
+                    ->name('stores.create');
+                Route::post('/', [StoreController::class, 'store'])
+                    ->name('store.store');
+                Route::get('/{store:slug}', [StoreController::class, 'show'])
+                    ->name('stores.show');
 
-        Route::get('/stores/{store:slug}', [StoreController::class, 'show'])
-            ->name('stores.show');
+                Route::get('/{store:slug}/products/create', [ProductController::class, 'create'])
+                    ->name('products.create');
+                Route::post('/{store:slug}/products', [ProductController::class, 'store'])
+                    ->name('products.store');
+                Route::get('/{store:slug}/products/{product:slug}/edit', [ProductController::class, 'edit'])
+                    ->name('products.edit');
+                Route::patch('/{store:slug}/products/{product:slug}', [ProductController::class, 'update'])
+                    ->name('products.update');
+            });
 
-        Route::get('/stores/{store:slug}/products/create', [ProductController::class, 'create'])
-            ->name('products.create');
-
-        Route::post('/store/{store:slug}/products', [ProductController::class, 'store'])
-            ->name('products.store');
-
-        Route::get('/stores/{store:slug}/products/{product:slug}/edit', [ProductController::class, 'edit'])
-            ->name('products.edit');
-
-        Route::patch('/stores/{store:slug}/products/{product:slug}', [ProductController::class, 'update'])
-            ->name('products.update');
-    });
-
-    Route::middleware('auth')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+            Route::prefix('/profile')->group(function () {
+                Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
+                Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+                Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
+            });
+        });
     });
 
     require __DIR__.'/auth.php';

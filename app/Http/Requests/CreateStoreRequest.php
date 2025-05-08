@@ -48,6 +48,24 @@ class CreateStoreRequest extends FormRequest
                 }
 
                 $slug = Str::slug($this->input('name'));
+
+                if (
+                    in_array($slug, [
+                        'admin',
+                        'api',
+                        'auth',
+                        'home',
+                        'login',
+                        'logout',
+                        'register',
+                        'www',
+                        'mail',
+                        'demo',
+                    ])
+                ) {
+                    $validator->errors()->add('name', 'This name is not allowed.');
+                }
+
                 if (Store::where('slug', $slug)->exists()) {
                     $validator->errors()->add(
                         'name',
