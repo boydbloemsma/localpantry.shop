@@ -64,12 +64,24 @@
     </div>
 
     <div class="mt-10 border-t pt-6">
-        <form method="post" action="{{ route('stores.destroy', ['store' => $store]) }}" class="mt-6">
+        <form
+            method="post"
+            action="{{ route('stores.destroy', ['store' => $store]) }}"
+            class="mt-6"
+            x-data="{ confirming: false }"
+            @submit.prevent="if (confirming) $el.submit(); else confirming = true"
+            @click.outside="confirming = false"
+        >
             @csrf
             @method('delete')
 
             <x-secondary-button type="submit">
-                {{ __('Delete Store') }}
+                <template x-if="!confirming">
+                    <span>{{ __('Delete Store') }}</span>
+                </template>
+                <template x-if="confirming">
+                    <span>{{ __('Are you sure? Click again') }}</span>
+                </template>
             </x-secondary-button>
         </form>
     </div>
