@@ -21,21 +21,12 @@
         </div>
     </x-slot>
 
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-        <h2 class="mt-2 text-pretty text-2xl text-stone-900 font-semibold font-serif sm:text-2xl lg:text-balance">
-            {{ __('Products') }}
-        </h2>
-
-        <a href="{{ route('products.create', $store) }}" class="gap-2 inline-flex items-center text-sm/6 ">
-            {{ __('Add Product') }}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-                <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
-            </svg>
-        </a>
-    </div>
+    <h2 class="mt-2 text-pretty text-2xl text-stone-900 font-semibold font-serif sm:text-2xl lg:text-balance">
+        {{ __('Products') }}
+    </h2>
 
     <div class="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
-        @forelse($store->products as $product)
+        @foreach($store->products as $product)
             <div class="group relative">
                 <div class="relative">
                     <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="aspect-[4/3] w-full rounded-lg bg-gray-100 object-cover">
@@ -55,10 +46,20 @@
                     {{ $product->description }}
                 </p>
             </div>
-        @empty
-            <p>
-                {{ __('No stores yet. Get started now by clicking the link in the top right.') }}
-            </p>
-        @endforelse
+        @endforeach
+
+        <div class="group relative">
+            <div class="relative">
+                <div class="aspect-[4/3] w-full rounded-lg bg-stone-200/50 flex items-center justify-center text-4xl font-semibold text-stone-900">
+                    <x-heroicon-o-plus class="w-12 h-12" />
+                    <a href="{{ route('products.create', $store) }}" class="absolute inset-0 z-10"><span class="sr-only">{{ __('Add Store') }}</span></a>
+                </div>
+                <div class="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" aria-hidden="true">
+                    <div class="w-full rounded-md bg-white/75 px-4 py-2 text-center text-sm font-medium text-gray-900 backdrop-blur backdrop-filter">
+                        {{ __('Add Product') }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </x-app-layout>
