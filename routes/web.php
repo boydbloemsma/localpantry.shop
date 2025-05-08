@@ -43,6 +43,8 @@ Route::domain(config('app.url'))->group(function () {
                     ->name('store.store');
                 Route::get('/{store:slug}', [StoreController::class, 'show'])
                     ->name('stores.show');
+                Route::delete('/{store:slug}', [StoreController::class, 'destroy'])
+                    ->name('stores.destroy');
 
                 Route::get('/{store:slug}/products/create', [ProductController::class, 'create'])
                     ->name('products.create');

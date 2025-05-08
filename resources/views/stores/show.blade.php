@@ -62,4 +62,15 @@
             </div>
         </div>
     </div>
+
+    <div class="mt-10 border-t pt-6">
+        <form method="post" action="{{ route('stores.destroy', ['store' => $store]) }}" class="mt-6">
+            @csrf
+            @method('delete')
+
+            <x-secondary-button type="submit">
+                {{ __('Delete Store') }}
+            </x-secondary-button>
+        </form>
+    </div>
 </x-app-layout>
