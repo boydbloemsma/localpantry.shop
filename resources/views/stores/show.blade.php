@@ -63,11 +63,14 @@
         </div>
     </div>
 
-    <div class="mt-10 border-t pt-6">
+    <div class="mt-10 border-t pt-6 flex content-center gap-4">
+        <x-plain-button href="#">
+            {{ __('Edit Store') }}
+        </x-plain-button>
+
         <form
             method="post"
             action="{{ route('stores.destroy', ['store' => $store]) }}"
-            class="mt-6"
             x-data="{ confirming: false }"
             @submit.prevent="if (confirming) $el.submit(); else confirming = true"
             @click.outside="confirming = false"
