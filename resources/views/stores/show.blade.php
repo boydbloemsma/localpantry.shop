@@ -64,7 +64,7 @@
     </div>
 
     <div class="mt-10 border-t pt-6 flex content-center gap-4">
-        <x-plain-button href="#">
+        <x-plain-button href="{{ route('stores.edit', $store) }}">
             {{ __('Edit Store') }}
         </x-plain-button>
 

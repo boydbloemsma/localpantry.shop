@@ -20,7 +20,7 @@ class StorePolicy
 
     public function update(User $user, Store $store): bool
     {
-        return false;
+        return $store->user_id === $user->id;
     }
 
     public function delete(User $user, Store $store): bool

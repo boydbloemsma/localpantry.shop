@@ -40,9 +40,13 @@ Route::domain(config('app.url'))->group(function () {
                 Route::get('/create', [StoreController::class, 'create'])
                     ->name('stores.create');
                 Route::post('/', [StoreController::class, 'store'])
-                    ->name('store.store');
+                    ->name('stores.store');
                 Route::get('/{store:slug}', [StoreController::class, 'show'])
                     ->name('stores.show');
+                Route::get('/{store:slug}/edit', [StoreController::class, 'edit'])
+                    ->name('stores.edit');
+                Route::patch('/{store:slug}', [StoreController::class, 'update'])
+                    ->name('stores.update');
                 Route::delete('/{store:slug}', [StoreController::class, 'destroy'])
                     ->name('stores.destroy');
 

@@ -65,14 +65,6 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ---
 
-## Quality & Polish (Nice to Have)
-
-- [ ] Social sharing previews (Open Graph, Twitter cards)
-- [ ] Basic loading indicators
-- [ ] Smooth transitions and UI feedback
-
----
-
 ## Feedback & Visibility (MVP)
 
 - [ ] Demo store live and accessible (e.g. `demo.localpantry.shop`)
@@ -89,13 +81,16 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Post-Launch (Nice to Have)
 
-- [ ] Mark products as available/unavailable
 - [ ] Per-store basic analytics (views counter, etc.)
+- [ ] Mark products as available/unavailable
 - [ ] Custom domains (`yourbrand.com`)
 - [ ] Welcome email after sign-up
 - [ ] Blog or updates section
 - [ ] Product search or filter
 - [ ] Store reviews or testimonials
+- [ ] Social sharing previews (Open Graph, Twitter cards)
+- [ ] Basic loading indicators
+- [ ] Smooth transitions and UI feedback
 - [x] Multi-language support
 
 ---
