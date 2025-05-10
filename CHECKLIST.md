@@ -51,7 +51,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 ## Quality & Polish (MVP)
 
 - [ ] Clear form validation and error messages (translations)
-- [ ] Favicon is in place
+- [x] Favicon is in place
 - [x] Page titles and meta descriptions are meaningful
 - [x] Storefront meta tags reflect store info
 - [x] Working 404 and fallback pages
