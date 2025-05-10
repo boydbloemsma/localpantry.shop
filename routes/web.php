@@ -32,6 +32,11 @@ Route::domain(config('app.url'))->group(function () {
     })
         ->name('terms');
 
+    Route::get('/about', function () {
+        return view('about.index');
+    })
+        ->name('about');
+
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('/onboarding')->group(function () {
             Route::get('/', [OnboardingController::class, 'index'])

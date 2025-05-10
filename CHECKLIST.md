@@ -42,9 +42,9 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Communication & Trust (MVP)
 
-- [ ] About page explaining what localpantry is
-- [x] Privacy policy and terms of use in the footer
 - [ ] Stores can add optional contact details (e.g. email, social links)
+- [x] About page explaining what localpantry is
+- [x] Privacy policy and terms of use in the footer
 - [x] Contact page or visible support email
 
 ---

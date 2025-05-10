@@ -63,8 +63,9 @@
         <footer>
             <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
                 <nav class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6" aria-label="Footer">
-                    <a href="#" class="hover:text-stone-900">About</a>
-                    <a href="#" class="hover:text-stone-900">Blog</a>
+                    <a href="{{ route('about') }}" class="hover:text-stone-900">
+                        {{ __('About') }}
+                    </a>
                     <a href="{{ route('contact.create') }}" class="hover:text-stone-900">
                         {{ __('Contact') }}
                     </a>
