@@ -1,6 +1,48 @@
-@extends('layouts.store')
+<x-storefront-layout>
+    <x-slot:meta>
+        <title>{{ $store->name }}</title>
+        <meta name="description" content="{{ $store->description ?? __('Discover local artisans on localpantry.shop') }}">
 
-@section('content')
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ $store->name }}">
+        <meta property="og:description" content="{{ $store->description ?? __('Discover local artisans on localpantry.shop') }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        @if($store->products->first()?->image_url)
+            <meta property="og:image" content="{{ $store->products->first()?->image_url }}">
+        @endif
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $store->name }}">
+        <meta name="twitter:description" content="{{ $store->description ?? __('Discover local artisans on localpantry.shop') }}">
+        @if($store->products->first()?->image_url)
+            <meta name="twitter:image" content="{{ $store->products->first()?->image_url }}">
+        @endif
+    </x-slot:meta>
+
+    <x-slot:navigation>
+        <nav class="flex items-center justify-between">
+            <a href="{{ route('welcome') }}" class="text-xl">
+                {{ $store->name }}
+            </a>
+
+            <div class="flex items-center gap-4">
+                <a
+                    href="#"
+                    class="inline-block px-5 py-1.5 border border-transparent hover:border-stone-300 rounded-sm text-sm leading-normal"
+                >
+                    {{ __('Contact') }}
+                </a>
+
+                <a
+                    href="#"
+                    class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
+                >
+                    {{ __('Share') }}
+                </a>
+            </div>
+        </nav>
+    </x-slot:navigation>
+
     <main>
         <div class="py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -23,8 +65,8 @@
                             <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="aspect-[4/3] w-full rounded-lg bg-gray-100 object-cover">
                             @if ($product->is_new)
                                 <span class="absolute top-2 right-2 rounded bg-amber-50 px-3 py-1 text-sm font-medium text-stone-900 shadow-sm ring-1 ring-stone-400/30">
-                                    {{ __('New') }}
-                                </span>
+                                {{ __('New') }}
+                            </span>
                             @endif
                         </div>
                         <div class="mt-4 text-base font-semibold tracking-wide font-serif text-stone-900">
@@ -46,4 +88,4 @@
             </div>
         </div>
     </main>
-@endsection
+</x-storefront-layout>

@@ -1,4 +1,8 @@
 <x-guest-layout>
+    <x-slot:title>
+        {{ __("Register") }}
+    </x-slot:title>
+
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <form method="POST" action="{{ route('register') }}" class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             @csrf

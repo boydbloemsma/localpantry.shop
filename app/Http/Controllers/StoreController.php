@@ -6,7 +6,6 @@ use App\Actions\CreateStoreAction;
 use App\Actions\DeleteStoreAction;
 use App\Actions\UpdateStoreAction;
 use App\Http\Requests\CreateStoreRequest;
-use App\Http\Requests\DeleteStoreRequest;
 use App\Http\Requests\UpdateStoreRequest;
 use App\Models\Store;
 use Illuminate\Http\Request;

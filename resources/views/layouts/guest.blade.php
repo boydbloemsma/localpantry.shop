@@ -5,7 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Laravel')  }} @if(!empty($title)) - {{ $title }} @endif</title>
+        <meta name="description" content="{{ $description ?? __('Discover local artisans on localpantry.shop') }}">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ config('app.name', 'Laravel') }}">
+        <meta property="og:description" content="{{ $description ?? __('Discover local artisans on localpantry.shop') }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ config('app.name', 'Laravel') }}">
+        <meta name="twitter:description" content="{{ $description ?? __('Discover local artisans on localpantry.shop') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

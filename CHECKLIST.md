@@ -42,16 +42,9 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Communication & Trust (MVP)
 
-- [ ] Stores can add optional contact details (e.g. email, social links)
 - [x] About page explaining what localpantry is
 - [x] Privacy policy and terms of use in the footer
 - [x] Contact page or visible support email
-
----
-
-## Communication & Trust (Nice to Have)
-
-- [ ] Storefront displays contact/social links attractively
 
 ---
 
@@ -59,8 +52,8 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 - [ ] Clear form validation and error messages (translations)
 - [ ] Favicon is in place
-- [ ] Page titles and meta descriptions are meaningful
-- [ ] Storefront meta tags reflect store info
+- [x] Page titles and meta descriptions are meaningful
+- [x] Storefront meta tags reflect store info
 - [x] Working 404 and fallback pages
 
 ---
@@ -91,6 +84,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 - [ ] Social sharing previews (Open Graph, Twitter cards)
 - [ ] Basic loading indicators
 - [ ] Smooth transitions and UI feedback
+- [ ] Stores can add optional contact details (e.g. email, social links)
 - [x] Multi-language support
 
 ---

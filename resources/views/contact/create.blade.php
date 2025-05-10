@@ -1,4 +1,8 @@
 <x-guest-layout>
+    <x-slot:title>
+        {{ __("Contact") }}
+    </x-slot:title>
+
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-lg">
             <h1 class="text-3xl font-semibold font-serif tracking-tight text-stone-900">

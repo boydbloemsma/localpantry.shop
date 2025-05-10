@@ -1,4 +1,8 @@
 <x-guest-layout>
+    <x-slot:title>
+        {{ __("Forgot Password") }}
+    </x-slot:title>
+
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <div class="mb-4 text-sm text-gray-600">

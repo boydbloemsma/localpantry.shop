@@ -1,4 +1,8 @@
 <x-guest-layout>
+    <x-slot:title>
+        {{ __("About localpantry.shop") }}
+    </x-slot:title>
+
     <main class="py-24 sm:py-32">
         <div class="mx-auto max-w-3xl px-6 lg:px-8">
             <h1 class="text-4xl font-serif font-semibold text-stone-900 sm:text-5xl">
