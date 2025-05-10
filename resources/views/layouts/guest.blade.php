@@ -68,8 +68,12 @@
                     <a href="{{ route('contact.create') }}" class="hover:text-stone-900">
                         {{ __('Contact') }}
                     </a>
-                    <a href="#" class="hover:text-stone-900">Terms of Service</a>
-                    <a href="#" class="hover:text-stone-900">Privacy Policy</a>
+                    <a href="{{ route('privacy') }}" class="hover:text-stone-900">
+                        {{ __('Privacy Policy') }}
+                    </a>
+                    <a href="{{ route('terms') }}" class="hover:text-stone-900">
+                        {{ __('Terms of Use') }}
+                    </a>
                 </nav>
 
                 <p class="mt-10 text-center text-sm/6">

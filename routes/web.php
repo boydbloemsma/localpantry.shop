@@ -22,6 +22,16 @@ Route::domain(config('app.url'))->group(function () {
         ->middleware(['throttle:contact'])
         ->name('contact.store');
 
+    Route::get('/privacy', function () {
+        return view('privacy.index');
+    })
+        ->name('privacy');
+
+    Route::get('/terms', function () {
+        return view('terms.index');
+    })
+        ->name('terms');
+
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('/onboarding')->group(function () {
             Route::get('/', [OnboardingController::class, 'index'])

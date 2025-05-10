@@ -27,8 +27,8 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Management & Admin (MVP)
 
-- [ ] Dashboard for artisans to manage products and store info
-- [ ] Products and store details can be updated or deleted
+- [x] Dashboard for artisans to manage products and store info
+- [x] Products and store details can be updated or deleted
 - [x] Admin panel to view and manage stores
 - [x] Upload limits and image constraints are enforced
 
@@ -43,7 +43,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 ## Communication & Trust (MVP)
 
 - [ ] About page explaining what localpantry is
-- [ ] Privacy policy and terms of use in the footer
+- [x] Privacy policy and terms of use in the footer
 - [ ] Stores can add optional contact details (e.g. email, social links)
 - [x] Contact page or visible support email
 
