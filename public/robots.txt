@@ -1,2 +1,22 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /logout
+Disallow: /profile
+Disallow: /onboarding
+Disallow: /email/
+Disallow: /password
+Disallow: /reset-password
+Disallow: /verify-email
+Disallow: /confirm-password
+Disallow: /livewire/
+Disallow: /filament/
+Disallow: /storage/
+
+Allow: /
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
