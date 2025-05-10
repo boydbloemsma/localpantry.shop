@@ -39,7 +39,7 @@
 
                     <div>
                         <x-input-label for="price" :value="__('Price')" />
-                        <x-text-input id="price" name="price" type="number" class="mt-1 block w-full" :value="old('price', $product->price)" required />
+                        <x-text-input id="price" name="price" type="number" step="0.01" class="mt-1 block w-full" :value="old('price', $product->price)" required />
                         <x-input-error class="mt-2" :messages="$errors->get('price')" />
                     </div>
 
