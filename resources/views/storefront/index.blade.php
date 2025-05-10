@@ -19,29 +19,11 @@
         @endif
     </x-slot:meta>
 
-    <x-slot:navigation>
-        <nav class="flex items-center justify-between">
-            <a href="{{ route('welcome') }}" class="text-xl">
-                {{ $store->name }}
-            </a>
-
-            <div class="flex items-center gap-4">
-                <a
-                    href="#"
-                    class="inline-block px-5 py-1.5 border border-transparent hover:border-stone-300 rounded-sm text-sm leading-normal"
-                >
-                    {{ __('Contact') }}
-                </a>
-
-                <a
-                    href="#"
-                    class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
-                >
-                    {{ __('Share') }}
-                </a>
-            </div>
-        </nav>
-    </x-slot:navigation>
+    <x-slot:logo>
+        <a href="{{ route('storefront.index', $store) }}" class="text-xl">
+            {{ $store->name }}
+        </a>
+    </x-slot:logo>
 
     <main>
         <div class="py-24 sm:py-32">
@@ -71,7 +53,7 @@
                         </div>
                         <div class="mt-4 text-base font-semibold tracking-wide font-serif text-stone-900">
                             <h3>
-                                <a href="#">
+                                <a href="{{ route('storefront.products.show', ['store' => $store, 'product' => $product]) }}">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     {{ $product->name }}
                                 </a>

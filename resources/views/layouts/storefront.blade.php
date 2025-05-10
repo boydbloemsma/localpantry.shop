@@ -33,7 +33,40 @@
 </head>
     <body class="bg-stone-50 text-stone-800 p-6 lg:p-8 min-h-screen font-sans">
         <header class="w-full text-sm mb-6 not-has-[nav]:hidden">
-            {{ $navigation }}
+            <nav class="flex items-center justify-between" x-data="{ showToast: false }">
+                @if(!empty($logo))
+                    {{ $logo }}
+                @else
+                    <a href="{{ route('welcome') }}" class="text-xl">
+                        {{ config('app.name') ?? 'Laravel' }}
+                    </a>
+                @endif
+
+                <button
+                    class="inline-block px-5 py-1.5 border-stone-300 hover:border-stone-400 border rounded-sm text-sm leading-normal"
+                    @click="
+                    if (navigator.share) {
+                        navigator.share({ title: document.title, url: window.location.href }).catch(console.error);
+                    } else {
+                        navigator.clipboard.writeText(window.location.href).then(() => {
+                            showToast = true;
+                            setTimeout(() => showToast = false, 2000);
+                        });
+                    }
+                "
+                >
+                    {{ __('Share') }}
+                </button>
+
+                <div
+                    x-show="showToast"
+                    x-transition
+                    class="fixed bottom-4 right-4 bg-stone-700 text-white text-sm px-4 py-2 rounded shadow-lg z-50"
+                    style="display: none;"
+                >
+                    {{ __('Link copied to clipboard') }}
+                </div>
+            </nav>
         </header>
 
         {{ $slot }}

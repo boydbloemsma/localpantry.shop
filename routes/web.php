@@ -93,5 +93,5 @@ Route::domain('{store:slug}.' . parse_url(config('app.url'), PHP_URL_HOST))->gro
         ->name('storefront.index');
 
     Route::get('/products/{product:slug}', [StoreFrontController::class, 'show'])
-        ->name('product.show');
+        ->name('storefront.products.show');
 });

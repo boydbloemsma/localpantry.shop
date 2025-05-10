@@ -1,22 +1,50 @@
-@extends('layouts.store')
+<x-storefront-layout>
+    <x-slot:meta>
+        <title>{{ $store->name }} - {{ $product->name }}</title>
+        <meta name="description" content="{{ $product->description ?? __('Discover local artisans on localpantry.shop') }}">
 
-@section('content')
-    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-        <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="rounded w-full h-64 object-cover mb-6">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ $store->name }} - {{ $product->name }}">
+        <meta property="og:description" content="{{ $product->description ?? __('Discover local artisans on localpantry.shop') }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        @if($product->image_url)
+            <meta property="og:image" content="{{ $product->image_url }}">
+        @endif
 
-        <h1 class="text-3xl font-bold mb-2">{{ $product->name }}</h1>
-        <p class="text-gray-600 text-xl mb-4">{{ number_format($product->price, 2) }} &euro;</p>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $store->name }} - {{ $product->name }}">
+        <meta name="twitter:description" content="{{ $product->description ?? __('Discover local artisans on localpantry.shop') }}">
+        @if($product->image_url)
+            <meta name="twitter:image" content="{{ $product->image_url }}">
+        @endif
+    </x-slot:meta>
 
-        <p class="text-gray-700 leading-relaxed mb-6">
-            {{ $product->description }}
-        </p>
+    <x-slot:logo>
+        <a href="{{ route('storefront.index', $store) }}" class="text-xl">
+            {{ $store->name }}
+        </a>
+    </x-slot:logo>
 
-        <div class="flex items-center justify-between">
-            <span class="text-sm text-gray-500">Pickup Only</span>
-
-            <a href="#" class="px-6 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">
-                Reserve Product
-            </a>
+    <section>
+        <div class="relative px-8 py-24 mx-auto md:px-12 lg:px-24 max-w-7xl">
+            <div class="items-center mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <img
+                    src="{{ $product->image_url }}"
+                    class="size-full aspect-[4/3] object-cover object-center rounded-2xl lg:col-span-2"
+                    alt="Product image"
+                />
+                <div>
+                    <p class="text-4xl sm:text-4xl md:text-5xl lg:text-6xl">
+                        {{ $product->formattedPrice }}
+                    </p>
+                    <h1 class="text-xl md:text-2xl lg:text-3xl mt-12 font-semibold font-serif">
+                        {{ $product->name }}
+                    </h1>
+                    <p class="text-base mt-4 text-base-500 lg:text-balance">
+                        {{ $product->description }}
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-@endsection
+    </section>
+</x-storefront-layout>
