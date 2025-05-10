@@ -52,7 +52,7 @@ class UpdateStoreRequest extends FormRequest
                         'demo',
                     ])
                 ) {
-                    $validator->errors()->add('name', 'This name is not allowed.');
+                    $validator->errors()->add('name', __('This name is not allowed.'));
                 }
 
                 $slug_exists = Store::query()
@@ -63,7 +63,7 @@ class UpdateStoreRequest extends FormRequest
                 if ($slug_exists) {
                     $validator->errors()->add(
                         'name',
-                        'A store with this name (or similar) already exists.',
+                        __('A store with this name (or similar) already exists.'),
                     );
                 }
             }

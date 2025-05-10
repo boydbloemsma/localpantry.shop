@@ -40,7 +40,7 @@ class CreateProductRequest extends FormRequest
                 if ($this->store->products()->count() >= 6) {
                     $validator->errors()->add(
                         'name',
-                        'You have reached the maximum number of products.',
+                        __('You have reached the maximum number of products.'),
                     );
                 }
             }

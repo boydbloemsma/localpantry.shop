@@ -41,7 +41,7 @@ class CreateStoreRequest extends FormRequest
                 if ($this->user()->stores()->count() >= 1) {
                     $validator->errors()->add(
                         'name',
-                        'You have reached the maximum number of stores.',
+                        __('You have reached the maximum number of stores.'),
                     );
 
                     return;
@@ -63,13 +63,13 @@ class CreateStoreRequest extends FormRequest
                         'demo',
                     ])
                 ) {
-                    $validator->errors()->add('name', 'This name is not allowed.');
+                    $validator->errors()->add('name', __('This name is not allowed.'));
                 }
 
                 if (Store::where('slug', $slug)->exists()) {
                     $validator->errors()->add(
                         'name',
-                        'A store with this name (or similar) already exists.',
+                        __('A store with this name (or similar) already exists.'),
                     );
                 }
             }

@@ -61,6 +61,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 ## Feedback & Visibility (MVP)
 
 - [ ] Demo store live and accessible (e.g. `demo.localpantry.shop`)
+- [ ] Do some more padding on the storefront pages
 - [x] Basic site-wide analytics (Fathom)
 - [x] Feedback channel (email address, contact form, etc.)
 
@@ -81,10 +82,10 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 - [ ] Blog or updates section
 - [ ] Product search or filter
 - [ ] Store reviews or testimonials
-- [ ] Social sharing previews (Open Graph, Twitter cards)
 - [ ] Basic loading indicators
 - [ ] Smooth transitions and UI feedback
 - [ ] Stores can add optional contact details (e.g. email, social links)
+- [x] Social sharing previews (Open Graph, Twitter cards)
 - [x] Multi-language support
 
 ---
