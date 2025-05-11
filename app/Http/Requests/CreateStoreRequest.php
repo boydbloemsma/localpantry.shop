@@ -27,6 +27,8 @@ class CreateStoreRequest extends FormRequest
                 'min:5',
                 'max:255',
             ],
+            'email' => ['nullable', 'string', 'email'],
+            'instagram' => ['nullable', 'string', 'max:255'],
         ];
     }
 

@@ -66,5 +66,64 @@
                 @endforeach
             </div>
         </div>
+
+        @if($store->instagram || $store->email)
+            <div class="py-8 sm:py-16">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="grid grid-cols-1 gap-10 py-16 lg:grid-cols-3">
+                        <div>
+                            <h2 class="text-pretty text-4xl font-semibold font-serif text-gray-900">
+                                {{ __('Get in touch') }}
+                            </h2>
+                            <p class="mt-4 text-base/7">
+                                {{ __('You can get in touch with me using any of these.') }}
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
+                            @if($store->instagram)
+                                <div class="rounded-2xl bg-stone-100 p-10">
+                                    <h3 class="text-base/7 font-semibold text-gray-900">
+                                        {{ __('Instagram') }}
+                                    </h3>
+                                    <dl class="mt-3 space-y-1 text-sm/6">
+                                        <div>
+                                            <dt class="sr-only">
+                                                {{ __('Instagram') }}
+                                            </dt>
+                                            <dd>
+                                                <a class="font-semibold text-amber-600" href="https://instagram.com/{{ ltrim($store->instagram, '@') }}" target="_blank" rel="noopener noreferrer">
+                                                    {{ ltrim($store->instagram, '@') }}
+                                                </a>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            @endif
+
+                            @if($store->email)
+                                <div class="rounded-2xl bg-stone-100 p-10">
+                                    <h3 class="text-base/7 font-semibold text-gray-900">
+                                        {{ __('Email') }}
+                                    </h3>
+                                    <dl class="mt-3 space-y-1 text-sm/6">
+                                        <div>
+                                            <dt class="sr-only">
+                                                {{ __('Email') }}
+                                            </dt>
+                                            <dd>
+                                                <a class="font-semibold text-amber-600" href="mailto:{{ $store->email }}">
+                                                    {{ $store->email }}
+                                                </a>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
     </main>
 </x-storefront-layout>

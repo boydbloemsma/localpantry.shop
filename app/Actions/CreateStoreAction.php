@@ -18,6 +18,8 @@ class CreateStoreAction
                 'name' => $attributes['name'],
                 'slug' => Str::slug($attributes['name']),
                 'description' => $attributes['description'],
+                'email' => $attributes['email'] ?? null,
+                'instagram' => $attributes['instagram'] ?? null,
             ]);
         });
 
