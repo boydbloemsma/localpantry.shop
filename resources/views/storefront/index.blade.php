@@ -62,9 +62,6 @@
                         <p class="mt-1">
                             {{ $product->formatted_price }}
                         </p>
-                        <p class="mt-1 text-pretty">
-                            {{ $product->description }}
-                        </p>
                     </div>
                 @endforeach
             </div>

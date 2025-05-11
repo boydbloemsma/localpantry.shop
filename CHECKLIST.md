@@ -77,6 +77,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Post-Launch (Nice to Have)
 
+- [ ] more products on product view page
 - [ ] Per-store basic analytics (views counter, etc.)
 - [ ] Mark products as available/unavailable
 - [ ] Custom domains (`yourbrand.com`)
