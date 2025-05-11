@@ -80,5 +80,71 @@
                 </div>
             </div>
         </div>
+
+        <div class="py-24 sm:py-32">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:mx-0">
+                    <h2 class="text-4xl font-semibold font-serif text-stone-900 sm:text-5xl">
+                        {{ __("Why we built localpantry.shop") }}
+                    </h2>
+                    <p class="mt-8 text-lg/8">
+                        {{ __("We believe local artisans deserve beautiful, simple tools to share their work online, without needing tech skills or big budgets. localpantry.shop is built for makers, by people who care about craft.") }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-24 sm:py-32 bg-stone-100 rounded-xl">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl lg:text-center">
+                    <h2 class="mt-2 text-pretty text-4xl text-stone-900 font-semibold font-serif sm:text-5xl lg:text-balance">
+                        {{ __("Built with care, not complexity") }}
+                    </h2>
+                    <p class="mt-6 text-lg/8">
+                        {{ __("localpantry.shop is intentionally simple. It’s fast, privacy-friendly, and respectful of your time and your visitors. No logins for customers. No ads. Just your craft.") }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
+                <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                    <div class="lg:col-span-5">
+                        <h2 class="text-pretty text-3xl font-semibold font-serif text-gray-900 sm:text-4xl">
+                            {{ __('Frequently asked questions') }}
+                        </h2>
+                    </div>
+                    <div class="mt-10 lg:col-span-7 lg:mt-0">
+                        <dl class="space-y-10">
+                            <div>
+                                <dt class="text-base/7 font-semibold text-gray-900">
+                                    {{ __('Is it free?') }}
+                                </dt>
+                                <dd class="mt-2 text-base/7">
+                                    {{ __("No. There is a small fee to keep things running, but we’ll always keep it simple and fair.") }}
+                                </dd>
+                            </div>
+                            <div>
+                                <dt class="text-base/7 font-semibold text-gray-900">
+                                    {{ __('Do I need to know how to code?') }}
+                                </dt>
+                                <dd class="mt-2 text-base/7">
+                                    {{ __("No. If you can write an email, you can use localpantry.shop.") }}
+                                </dd>
+                            </div>
+                            <div>
+                                <dt class="text-base/7 font-semibold text-gray-900">
+                                    {{ __('Can I sell products directly?') }}
+                                </dt>
+                                <dd class="mt-2 text-base/7">
+                                    {{ __("We don’t process sales. Your shop page is like a digital business card with your products and contact info.") }}
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 </x-guest-layout>
