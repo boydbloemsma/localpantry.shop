@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         $this->configureModels();
         $this->configureUrl();
         $this->configureRateLimiters();
+        $this->configureGates();
     }
 
     private function configureCommands(): void
@@ -59,5 +62,10 @@ class AppServiceProvider extends ServiceProvider
         RateLimiter::for('contact', function (Request $request) {
             return Limit::perMinute(3)->by($request->ip());
         });
+    }
+
+    private function configureGates(): void
+    {
+        Gate::before(fn (User $user): bool => $user->email === 'boydbloemsma@gmail.com');
     }
 }
