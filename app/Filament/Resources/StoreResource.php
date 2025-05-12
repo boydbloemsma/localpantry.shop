@@ -57,6 +57,16 @@ class StoreResource extends Resource
                     ->rows(10)
                     ->cols(20)
                     ->nullable(),
+                Forms\Components\Section::make('Contact Information')
+                    ->columns()
+                    ->schema([
+                        Forms\Components\TextInput::make('email')
+                            ->email()
+                            ->nullable(),
+                        Forms\Components\TextInput::make('instagram')
+                            ->prefix('instagram.com/')
+                            ->nullable(),
+                    ]),
             ]);
     }
 
@@ -68,6 +78,12 @@ class StoreResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('instagram')
+                    ->searchable()
+                    ->url(fn (?string $state): ?string => $state ? "https://instagram.com/$state" : null)
+                    ->openUrlInNewTab(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),
