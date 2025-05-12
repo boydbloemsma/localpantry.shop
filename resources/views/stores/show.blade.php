@@ -26,7 +26,7 @@
     </h2>
 
     <div class="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
-        @foreach($store->products as $product)
+        @foreach($products as $product)
             <div class="group relative">
                 <div class="relative">
                     <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="aspect-[4/3] w-full rounded-lg bg-gray-100 object-cover">

@@ -7,6 +7,7 @@ use App\Actions\DeleteStoreAction;
 use App\Actions\UpdateStoreAction;
 use App\Http\Requests\CreateStoreRequest;
 use App\Http\Requests\UpdateStoreRequest;
+use App\Models\Product;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -17,10 +18,14 @@ class StoreController extends Controller
     {
         Gate::authorize('view', $store);
 
-        $store->load('products');
+        $products = Product::query()
+            ->where('store_id', $store->id)
+            ->latest()
+            ->get();
 
         return view('stores.show', [
             'store' => $store,
+            'products' => $products,
         ]);
     }
 

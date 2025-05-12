@@ -35,6 +35,7 @@ class CreateProductAction
                 'description' => $attributes['description'],
                 'price' => $attributes['price'],
                 'image_id' => $image->id,
+                'available' => !empty($attributes['available']),
             ]);
         });
 
@@ -42,4 +43,3 @@ class CreateProductAction
         // broadcast(new ProductCreated($product))->toOthers();
     }
 }
-

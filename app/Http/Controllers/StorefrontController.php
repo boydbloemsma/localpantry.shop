@@ -10,7 +10,11 @@ class StorefrontController extends Controller
 {
     public function index(Store $store)
     {
-        $products = $store->products()->latest()->get();
+        $products = Product::query()
+            ->where('store_id', $store->id)
+            ->where('available', true)
+            ->latest()
+            ->get();
 
         return view('storefront.index', [
             'store' => $store,
@@ -20,6 +24,10 @@ class StorefrontController extends Controller
 
     public function show(Store $store, Product $product)
     {
+        if (!$product->available) {
+            abort(404);
+        }
+
         return view('storefront.show', [
             'store' => $store,
             'product' => $product,

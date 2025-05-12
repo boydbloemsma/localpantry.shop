@@ -47,6 +47,9 @@ class ProductsRelationManager extends RelationManager
 //                    ->nullable()
 //                    ->image(),
                 Forms\Components\TextInput::make('image_id'),
+                Forms\Components\Toggle::make('available')
+                    ->label('Available')
+                    ->default(true),
             ]);
     }
 
@@ -61,6 +64,9 @@ class ProductsRelationManager extends RelationManager
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
                     ->money(currency: 'EUR'),
+                Tables\Columns\IconColumn::make('available')
+                    ->boolean()
+                    ->label('Available'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),

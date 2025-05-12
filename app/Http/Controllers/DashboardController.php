@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,8 +11,13 @@ class DashboardController extends Controller
     {
         $user = $request->user();
 
+        $stores = Store::query()
+            ->where('user_id', $user->id)
+            ->latest()
+            ->get();
+
         return view('dashboard', [
-            'stores' => $user->stores,
+            'stores' => $stores
         ]);
     }
 }

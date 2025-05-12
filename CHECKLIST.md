@@ -79,7 +79,6 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 - [ ] more products on product view page
 - [ ] Per-store basic analytics (views counter, etc.)
-- [ ] Mark products as available/unavailable
 - [ ] Custom domains (`yourbrand.com`)
 - [ ] Welcome email after sign-up
 - [ ] Blog or updates section
@@ -87,7 +86,8 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 - [ ] Store reviews or testimonials
 - [ ] Basic loading indicators
 - [ ] Smooth transitions and UI feedback
-- [ ] Stores can add optional contact details (e.g. email, social links)
+- [x] Stores can add optional contact details (e.g. email, social links)
+- [x] Mark products as available/unavailable
 - [x] Social sharing previews (Open Graph, Twitter cards)
 - [x] Multi-language support
 

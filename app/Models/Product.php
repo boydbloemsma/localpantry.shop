@@ -15,6 +15,7 @@ class Product extends Model
 {
     protected $casts = [
         'price' => MoneyCast::class,
+        'available' => 'boolean',
     ];
 
     public function store(): BelongsTo

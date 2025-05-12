@@ -40,6 +40,7 @@ class UpdateProductAction
                 'slug' => Str::slug($attributes['name']),
                 'description' => $attributes['description'],
                 'price' => $attributes['price'],
+                'available' => !empty($attributes['available']),
             ]);
         });
 
@@ -47,4 +48,3 @@ class UpdateProductAction
         // broadcast(new ProductCreated($product))->toOthers();
     }
 }
-

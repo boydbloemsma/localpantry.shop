@@ -49,6 +49,12 @@
                         <x-input-error class="mt-2" :messages="$errors->get('image')" />
                     </div>
 
+                    <div class="flex items-center">
+                        <input id="available" name="available" type="checkbox" class="rounded border-stone-300 text-stone-600 shadow-sm focus:ring-stone-500" value="1" {{ old('available', $product->available) ? 'checked' : '' }}>
+                        <x-input-label for="available" :value="__('Available')" class="ml-2" />
+                        <x-input-error class="mt-2" :messages="$errors->get('available')" />
+                    </div>
+
                     <div class="flex items-center gap-4">
                         <x-primary-button>{{ __('Update') }}</x-primary-button>
                     </div>
