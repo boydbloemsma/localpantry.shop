@@ -34,15 +34,37 @@
                     alt="Product image"
                 />
                 <div>
-                    <p class="text-4xl sm:text-4xl md:text-5xl lg:text-6xl">
-                        {{ $product->formattedPrice }}
-                    </p>
+                    <div class="flex items-center justify-between">
+                        <p class="text-4xl sm:text-4xl md:text-5xl lg:text-6xl">
+                            {{ $product->formattedPrice }}
+                        </p>
+                        @if ($product->isNew)
+                            <span class="rounded bg-amber-50 px-3 py-1 text-sm font-medium text-stone-900 shadow-sm ring-1 ring-stone-400/30">
+                                {{ __('New') }}
+                            </span>
+                        @endif
+                    </div>
                     <h1 class="text-xl md:text-2xl lg:text-3xl mt-12 font-semibold font-serif">
                         {{ $product->name }}
                     </h1>
                     <p class="text-base mt-4 text-base-500 lg:text-balance">
                         {{ $product->description }}
                     </p>
+                    <div class="mt-8 pt-8 border-t border-gray-200">
+                        <p class="text-sm text-gray-500">
+                            {{ __('Added') }}: {{ $product->created_at->diffForHumans() }}
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <h2 class="text-lg font-semibold font-serif">{{ __('About the store') }}</h2>
+                        <p class="mt-2 text-base text-base-500">
+                            {{ $store->description }}
+                        </p>
+
+                        <div class="mt-6">
+                            <!-- Contact and share buttons removed as requested -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

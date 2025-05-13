@@ -60,8 +60,8 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Feedback & Visibility (MVP)
 
-- [ ] Add more stuff on storefront
 - [ ] Demo store live and accessible (e.g. `demo.localpantry.shop`)
+- [x] Add more stuff on storefront
 - [x] Add clicking on a product in storefront
 - [x] Add share button
 - [x] Basic site-wide analytics (Fathom)
