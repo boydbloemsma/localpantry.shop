@@ -28,9 +28,18 @@ class StorefrontController extends Controller
             abort(404);
         }
 
+        $related_products = Product::query()
+            ->where('store_id', $store->id)
+            ->where('id', '!=', $product->id)
+            ->where('available', true)
+            ->latest()
+            ->limit(4)
+            ->get();
+
         return view('storefront.show', [
             'store' => $store,
             'product' => $product,
+            'related_products' => $related_products,
         ]);
     }
 }

@@ -77,7 +77,6 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 
 ## Post-Launch (Nice to Have)
 
-- [ ] more products on product view page
 - [ ] Per-store basic analytics (views counter, etc.)
 - [ ] Custom domains (`yourbrand.com`)
 - [ ] Welcome email after sign-up
@@ -86,6 +85,7 @@ Sections are divided into **MVP (Must-Have)** and **Nice to Have** for clarity.
 - [ ] Store reviews or testimonials
 - [ ] Basic loading indicators
 - [ ] Smooth transitions and UI feedback
+- [x] more products on product view page
 - [x] Stores can add optional contact details (e.g. email, social links)
 - [x] Mark products as available/unavailable
 - [x] Social sharing previews (Open Graph, Twitter cards)

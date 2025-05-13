@@ -47,4 +47,39 @@
             </div>
         </div>
     </section>
+
+    @if($related_products->count() > 0)
+    <section>
+        <div class="relative px-8 py-24 mx-auto md:px-12 lg:px-24 max-w-7xl">
+            <h2 class="text-2xl md:text-3xl font-semibold font-serif mb-8">
+                {{ __('More products from this store') }}
+            </h2>
+            <div class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
+                @foreach ($related_products as $related_product)
+                    <div class="group relative">
+                        <div class="relative">
+                            <img src="{{ $related_product->image_url }}" alt="{{ $related_product->name }}" class="aspect-[4/3] w-full rounded-lg bg-gray-100 object-cover">
+                            @if ($related_product->isNew)
+                                <span class="absolute top-2 right-2 rounded bg-amber-50 px-3 py-1 text-sm font-medium text-stone-900 shadow-sm ring-1 ring-stone-400/30">
+                                {{ __('New') }}
+                            </span>
+                            @endif
+                        </div>
+                        <div class="mt-4 text-base font-semibold tracking-wide font-serif text-stone-900">
+                            <h3>
+                                <a href="{{ route('storefront.products.show', ['store' => $store, 'product' => $related_product]) }}">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    {{ $related_product->name }}
+                                </a>
+                            </h3>
+                        </div>
+                        <p class="mt-1">
+                            {{ $related_product->formattedPrice }}
+                        </p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
 </x-storefront-layout>

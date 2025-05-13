@@ -89,9 +89,9 @@ Route::domain(config('app.url'))->group(function () {
 });
 
 Route::domain('{store:slug}.' . parse_url(config('app.url'), PHP_URL_HOST))->group(function () {
-    Route::get('/', [StoreFrontController::class, 'index'])
+    Route::get('/', [StorefrontController::class, 'index'])
         ->name('storefront.index');
 
-    Route::get('/products/{product:slug}', [StoreFrontController::class, 'show'])
+    Route::get('/products/{product:slug}', [StorefrontController::class, 'show'])
         ->name('storefront.products.show');
 });
