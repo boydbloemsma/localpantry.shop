@@ -4,7 +4,6 @@ namespace App\Actions;
 
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class DeleteProductAction
 {
