@@ -18,13 +18,11 @@ class UploadImageRequest extends Request implements HasBody
 
     protected Method $method = Method::POST;
 
-    public function __construct(
-        protected UploadedFile $file,
-    ) {}
+    public function __construct(protected UploadedFile $file) {}
 
     public function resolveEndpoint(): string
     {
-        $account_id = config('services.cloudflare.account_id');
+        $account_id = config("services.cloudflare.account_id");
 
         return "/accounts/$account_id/images/v1";
     }
@@ -33,9 +31,11 @@ class UploadImageRequest extends Request implements HasBody
     {
         return [
             new MultipartValue(
-                name: 'file',
+                name: "file",
                 value: file_get_contents($this->file->getRealPath()),
-                filename: Str::uuid() . '.' . $this->file->getClientOriginalExtension(),
+                filename: Str::uuid() .
+                    "." .
+                    $this->file->getClientOriginalExtension(),
             ),
         ];
     }
@@ -45,14 +45,14 @@ class UploadImageRequest extends Request implements HasBody
         $data = $response->json();
 
         return new Image(
-            id: $data['result']['id'],
-            filename: $data['result']['filename'],
-            uploaded: $data['result']['uploaded'],
+            id: $data["result"]["id"],
+            filename: $data["result"]["filename"],
+            uploaded: $data["result"]["uploaded"],
         );
     }
 
     public function hasRequestFailed(Response $response): bool
     {
-        return !$response->successful() || !empty($response->json('errors'));
+        return !$response->successful() || !empty($response->json("errors"));
     }
 }
