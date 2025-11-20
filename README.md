@@ -2,33 +2,57 @@
 
 A Laravel-based marketplace for local artisans to create online stores and list their products.
 
-## Quick Start
+## Running locally
 
-1. **Install dependencies:**
-   ```bash
-   composer install
-   npm install
-   ```
+Make sure docker and docker compose are installed.
 
-2. **Setup environment:**
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
+Copy `.env.example` to `.env`
 
-3. **Run migrations:**
-   ```bash
-   php artisan migrate
-   ```
+Run the app.
 
-4. **Start development:**
-   ```bash
-   composer dev
-   ```
+```sh
+docker compose up
+```
+
+Install all dependencies.
+
+```sh
+docker compose exec php composer install
+```
+
+Migrate database and seed data.
+
+```sh
+docker compose exec php php artisan migrate --seed
+```
+
+Generate an app key.
+
+```sh
+docker compose exec php php artisan key:generate
+```
+
+## Deploying
+
+For deploying to production we use [kamal](https://kamal-deploy.org/).
+
+So run the following command to get the production environment values in your shell enviroment.
+
+> This assumes you have a .env.production file.
+
+```
+export $(cat .env.production | grep -v '^#' | xargs)
+```
+
+Deployment is then as easy as running the following.
+
+```sh
+kamal deploy
+```
 
 ## How it works
 
-- Users create stores with custom subdomains (e.g., `yourstore.localpantry.shop`)
+- Users create stores with custom subdomains (e.g., `your-store.localpantry.shop`)
 - Store owners manage products through the dashboard
 - Customers browse and view products on individual storefronts
 - Admin panel available at `/admin`

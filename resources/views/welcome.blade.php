@@ -122,7 +122,7 @@
                                     {{ __('Is it free?') }}
                                 </dt>
                                 <dd class="mt-2 text-base/7">
-                                    {{ __("No. There is a small fee to keep things running, but we’ll always keep it simple and fair.") }}
+                                    {{ __("Yes. For now localpantry.shop is free to use.") }}
                                 </dd>
                             </div>
                             <div>
