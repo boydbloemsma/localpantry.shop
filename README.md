@@ -63,3 +63,5 @@ kamal deploy
 - Filament 3.x (Admin Panel)
 - TailwindCSS + Alpine.js
 - Cloudflare Images
+- Docker + Docker compose
+- Kamal

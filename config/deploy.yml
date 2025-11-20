@@ -19,7 +19,7 @@ servers:
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 proxy:
   ssl: true
-  host: staging.localpantry.shop
+  host: localpantry.shop
   # Proxy connects to your container on port 80 by default.
   app_port: 8080
 
@@ -47,7 +47,7 @@ env:
     APP_NAME: localpantry.shop
     APP_ENV: production
     APP_DEBUG: false
-    APP_URL: https://staging.localpantry.shop
+    APP_URL: https://localpantry.shop
     APP_MAINTENANCE_DRIVER: file
     BCRYPT_ROUNDS: 12
     LOG_CHANNEL: stderr
