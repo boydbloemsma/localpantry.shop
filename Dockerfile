@@ -52,5 +52,8 @@ FROM base AS production
 ENV PHP_OPCACHE_ENABLE=1
 ENV AUTORUN_ENABLED="true"
 
+# Copy laravel app
 COPY --chown=www-data:www-data --from=build /var/www/html /var/www/html
+# Copy build assets from node-build stage
+COPY --chown=www-data:www-data --from=node-build /app/public/build /var/www/html/public/build
 USER www-data
